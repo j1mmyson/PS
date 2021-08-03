@@ -1,0 +1,1 @@
+select datetime from ANIMAL_INS where datetime = max(datetime);

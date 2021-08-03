@@ -1,0 +1,1 @@
+SELECT HOUR(datetime) HOUR, count(hour(datetime)) COUNT  from animal_outs group by HOUR having hour between 9 and 19 order by HOUR
