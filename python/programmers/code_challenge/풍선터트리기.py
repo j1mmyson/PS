@@ -1,29 +1,24 @@
-def solution(a):
-    answer = 2
-    l = len(a)
-    start = 0
-    end = l-1
-    left = a[0]
-    right = [a[-1]]
-    for i in range(l-1, 1, -1):
-        if a[i] < right[-1]:
-            right.append(a[i])
-    for i in range(1,l-2):
-        if (a[i]<left) or (a[i]<right[-1]):
+def solution(balloon):
+    answer = 0
+    l = len(balloon)
+    left = [0 for _ in range(l)]
+    right = [0 for _ in range(l)]
+    lm = 1000000000
+    rm = 1000000000
+    
+    for i in range(0, l):
+        if balloon[i] < lm:
+            lm = balloon[i]
+        left[i] = lm
+        
+        
+    for i in range(l-1, -1, -1):
+        if balloon[i] < rm:
+            rm = balloon[i]
+        right[i] = rm
+    
+    
+    for i in range(l):
+        if balloon[i] <= left[i] or balloon[i] <= right[i]:
             answer += 1
-        if a[i] < left:
-            left = a[i]
-        if a[i+1] == right[-1]:
-            right.pop()
-    
-    if a[-3] < left:
-        left = a[-3]
-    if a[-2] < right[-1]:
-        right.pop()
-    if len(right) == 0:
-        answer+=1
-    elif (a[-2]<left) or (a[-2]<right[-1]):
-        answer += 1
-    
-            
     return answer
