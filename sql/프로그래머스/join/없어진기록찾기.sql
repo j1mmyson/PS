@@ -1,0 +1,1 @@
+SELECT animal_outs.animal_id as ANIMAL_ID, animal_outs.name as NAME from animal_outs left join animal_ins on animal_ins.animal_id = animal_outs.animal_id where animal_ins.animal_id is null
