@@ -16,8 +16,6 @@ n = int(input())
 for _ in range(n):
     M, N, x, y = map(int, sys.stdin.readline().split())
     num = -1
-    xList = []
-    yList = []
     maxNum = lcm(M, N)
     while x <= maxNum:
         if (x - y) % N == 0:
