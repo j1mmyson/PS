@@ -2,16 +2,16 @@ import sys
 from collections import deque
 
 def dfs(tree, start):
+    global n
     
     max_vertex, max_distance = 0, 0
-    visited = [False for _ in range(100001)]
+    visited = [False for _ in range(n+1)]
     q = deque()
     q.append([start, 0])
 
     while q:
         v, d = q.pop()
         visited[v] = True
-        vtx[v] = d
 
         if d > max_distance:
             max_distance = d
